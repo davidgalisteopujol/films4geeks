@@ -1,0 +1,18 @@
+.grid {
+    margin-left: 5px;
+    margin-bottom: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.5em;
+    justify-content: center;
+    outline: none;
+}
+
+.quote{
+    display: flex;
+    justify-content: end;
+}
+
+
+
+
+

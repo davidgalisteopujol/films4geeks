@@ -1,43 +1,30 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			movies: [],
+			searchedMovies: [],
+			searchValue: ''
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			
+			fetchMovies: async () => {
+				const API_URL = 'https://api.themoviedb.org/3/movie/popular?api_key=c5083e57bd8e698a2a69427a666f125f';
+				const API_URL_2 = 'https://imdb-api.com/en/API/ComingSoon/k_aq317h6s'
+				const empty = []
+				const CONFIG = {
+					method: "GET",
+					headers: {
+						"Content-type": "application/json"
+					}	
+				}
+				const response  = await fetch (API_URL, CONFIG)
+				const json = await response.json();
+			
+				console.log(">>DATA>>", json)
+				setStore({movies:json.results})
+		
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			}
 		}
 	};
 };

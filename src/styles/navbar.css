@@ -1,0 +1,25 @@
+.navbar {
+    background-color: rgb(33, 109, 136);
+    color: rgb(255, 206, 71);
+}
+
+span {
+    color: rgb(255, 206, 71);
+}
+
+button {
+    background-color: rgb(255, 206, 71);
+}
+
+.nav-link {
+    color:  rgb(255, 206, 71);
+    text-decoration: none;
+}
+
+.nav-link:hover{
+    color: orange;
+}
+
+a {
+    text-decoration: none;
+}
