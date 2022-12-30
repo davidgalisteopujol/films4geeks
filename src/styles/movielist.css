@@ -1,0 +1,13 @@
+.grid {
+    margin-left: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    outline: none;
+    height: 15rem;
+}
+
+.remove-fav {
+    background: none;
+    border: none;
+    color: rgb(33, 109, 136);
+}

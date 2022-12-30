@@ -19,6 +19,9 @@ export const Navbar = ({check,change}) => {
 				<Link to="/search">
 					<div className="nav-link">Search</div>
 				</Link>
+				<Link to="/profile">
+					<div className="nav-link">My Profile</div>
+				</Link>
 				<Switch onChange={change} checked={check}/>
 			</div>
 		</nav>

@@ -5,10 +5,11 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Home } from "./views/home";
 import { Details } from "./views/details";
-import { Single } from "./views/single";
+import { Search } from "./views/single";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Profile } from "./views/Profile";
 import {Starring} from "./views/starring";
 
 //create your first component
@@ -36,9 +37,10 @@ const Layout = () => {
 					<Navbar check={darkMode} change={()=>setDarkMode(!darkMode)}/>
 						<Routes>
 							<Route path="/" element={<Home />} />
-							<Route path="/details/:index" element={<Details />} />
+							<Route path="/details/:id" element={<Details />} />
 							<Route path="/starring" element={<Starring />} />
-							<Route path="/search" element={<Single />} />
+							<Route path="/search" element={<Search />} />
+							<Route path="/profile" element={<Profile />} />
 							<Route path="*" element={<h1>Not found!</h1>} />
 						</Routes>
 						<Footer />
