@@ -1,0 +1,15 @@
+@media screen and (max-width: 600px) {
+    .show-div{
+        display:none;
+    }
+}
+
+.bg-color{
+    background-color: rgb(10, 25, 41);
+    color: rgb(210, 148, 53);
+}
+
+.title {
+    text-decoration:underline;
+    text-decoration-color: rgb(149,211,245);
+}

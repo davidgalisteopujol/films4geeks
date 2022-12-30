@@ -10,7 +10,7 @@ export const Navbar = ({check,change}) => {
 				<span className="navbar-brand mb-0 h1 ms-4">Films4Geeks</span>
 			</Link>
 			<div className="ml-auto d-flex me-4">
-				<Link to="/demo">
+				<Link to="/login">
 					<div className="nav-link">Login</div>
 				</Link>
 				<Link to="/starring" >
@@ -19,6 +19,7 @@ export const Navbar = ({check,change}) => {
 				<Link to="/search">
 					<div className="nav-link">Search</div>
 				</Link>
+			
 				<Switch onChange={change} checked={check}/>
 			</div>
 		</nav>

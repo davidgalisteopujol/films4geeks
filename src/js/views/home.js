@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import quotes from '/workspace/react-hello-webapp/quotes.json'
+//import quotes from '/workspace/react-hello-webapp/quotes.json'
 
 
 import '../../styles/home.css'
@@ -15,7 +15,7 @@ export const Home = () => {
 	return (
 	
 		<div className="container mt-5">
-		<div>
+		{/* <div>
 			{
 				quotes.map((quote, id) => {
 					return (
@@ -28,7 +28,7 @@ export const Home = () => {
 					)
 				})
 			}
-		</div>
+		</div> */}
 		<h2 className="m-b4">Popular in 2022...</h2>
 	
 		<div className="grid d-flex row p-5">
