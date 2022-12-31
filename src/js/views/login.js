@@ -28,13 +28,13 @@ export const Login = () => {
                             <input className="input" placeholder="Password"/>
                         </div>
                         
-                        <div className="text-end" style={{width:"510px"}}>
+                        <div className="prueba" >
                             <input type="submit" className="button"/>
                         </div>
                         
                     </form>
 
-                    <div className="text-end mt-4" style={{width:"510px"}}>
+                    <div className=" mt-4" >
                             <p>Forgot your Password?</p>
                     </div>
 
