@@ -12,6 +12,7 @@ import { Footer } from "./component/footer";
 import {Starring} from "./views/starring";
 import {Login} from "./views/login";
 import { SignUp } from "./views/signUp";
+import { Privacy } from "./views/privacy";
 //create your first component
 
 
@@ -42,6 +43,7 @@ const Layout = () => {
 							<Route path="/search" element={<Single />} />
 							<Route path="/login" element={<Login/>} />
 							<Route path="/signUp" element={<SignUp/>}/>
+							<Route path="/privacy" element={<Privacy/>}/>
 						</Routes>
 						<Footer />
 				</ScrollToTop>
