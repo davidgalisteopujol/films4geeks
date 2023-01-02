@@ -71,6 +71,7 @@
         padding: 3px;
         width: 30%;
         font-weight: bold;
+       
         
         
     }
@@ -81,6 +82,5 @@ p {
 }
 
 .register {
-    color: rgb(149,211,245);
-    cursor: pointer;
+    color: rgb(149,211,245)
 }

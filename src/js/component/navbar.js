@@ -10,6 +10,9 @@ export const Navbar = ({check,change}) => {
 				<span className="navbar-brand mb-0 h1 ms-4">Films4Geeks</span>
 			</Link>
 			<div className="ml-auto d-flex me-4">
+			<Link to="/signUp">
+					<div className="nav-link">Sign Up</div>
+				</Link>
 				<Link to="/login">
 					<div className="nav-link">Login</div>
 				</Link>

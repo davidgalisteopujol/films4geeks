@@ -1,27 +1,25 @@
-import  React from "react"
-import { useNavigate } from "react-router-dom";
-import loginImage from "../../img/loginImage.png"
-import logincss from "../../styles/login.css"
+import React from "react";
+import SignUpImage from "../../img/signUpImage.png"
+import signUpCss from "../../styles/signUp.css"
 
 
-export const Login = () => {
-    const navigate = useNavigate()
-
-    const handleClickSignUp = () => {
-        navigate("/signUp")
-    }
-
+export const SignUp = () => {
     return (
         <div className="fluid-container">
 
             <div className="row bg-success justify-content-center">
                 <div className="col show-div bg-primary"  >
-                <img src={loginImage} className="img-fluid"  alt="..."/>
+                <img src={SignUpImage} className="img-fluid"  alt="..."/>
                 </div>
 
                 <div className="col bg-color">
-                    <h1 className="text-center title">Login</h1>
+                    <h1 className="text-center title">Sign Up</h1>
                     <form>
+                        <div className="p-2">
+                            <h3>Name</h3>
+                            <label ></label>
+                            <input className="input" type="text"  placeholder="Email"/>
+                        </div>
                         
                         <div className="p-2">
                             <h3>Email</h3>
@@ -33,6 +31,12 @@ export const Login = () => {
                             <label></label>
                             <input className="input" type="password" placeholder="Password"/>
                         </div>
+                        <div className="p-2">
+                            <h3>Repeat Your Password</h3>
+                            <label></label>
+                            <input className="input mb-4" type="password" placeholder="Password"/>
+                        </div>
+                        
                         
                         <div className="prueba" >
                             <input type="submit" className="button" value="Send"/>
@@ -40,17 +44,13 @@ export const Login = () => {
                         
                     </form>
 
-                    <div className=" mt-4" >
-                            <p>Forgot your Password?</p>
-                    </div>
+                   
 
-                    <div className="text-center mt-5">
-                        <h3 className="register" onClick={handleClickSignUp}>Not user yet? Sign Up</h3>
-                    </div>
+                    
                 </div>
             </div>
 
         </div>
     )
 }
-
+    
