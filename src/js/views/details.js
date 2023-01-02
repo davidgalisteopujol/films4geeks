@@ -12,6 +12,9 @@ export const Details = () => {
 
 	let params = useParams()
 
+	
+	
+
 	return (
 		<div className="container mt-4">
 			<Paper>

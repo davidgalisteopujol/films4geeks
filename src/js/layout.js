@@ -13,6 +13,7 @@ import {Starring} from "./views/starring";
 import {Login} from "./views/login";
 import { SignUp } from "./views/signUp";
 import { Privacy } from "./views/privacy";
+import { DetailsCard } from "./views/DetailsCard.js";
 //create your first component
 
 
@@ -38,12 +39,13 @@ const Layout = () => {
 					<Navbar check={darkMode} change={()=>setDarkMode(!darkMode)}/>
 						<Routes>
 							<Route path="/" element={<Home />} />
-							<Route path="/details/:index" element={<Details />} />
+							{/* <Route path="/details/:index" element={<Details />} /> */}
 							<Route path="/starring" element={<Starring />} />
 							<Route path="/search" element={<Single />} />
 							<Route path="/login" element={<Login/>} />
 							<Route path="/signUp" element={<SignUp/>}/>
 							<Route path="/privacy" element={<Privacy/>}/>
+							<Route path="details/:id/" element={<DetailsCard/>}/>
 						</Routes>
 						<Footer />
 				</ScrollToTop>
