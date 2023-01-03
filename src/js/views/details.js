@@ -8,12 +8,13 @@ import { Paper } from "@mui/material";
 const API_IMAGE = 'https://image.tmdb.org/t/p/w500/'
 
 export const Details = () => {
+
 	const { store, actions } = useContext(Context);
 
 	let params = useParams()
 
 	
-	
+
 
 	return (
 		<div className="container mt-4">

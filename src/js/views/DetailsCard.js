@@ -2,34 +2,30 @@ import React, { useEffect } from "react"
 import { Context } from "../store/appContext";
 import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
+import { objectOf } from "prop-types";
 
 
 export const DetailsCard =() => {
 
     const { store, actions } = useContext(Context);
-    const [peliculas, setPeliculas] = useState()
+    const [pelicula, setPelicula] = useState()
     let {id} = useParams()
 
-    
-   
 
-    function filtrarPorId(obj,id) {
-        if(obj.id == id) {
-            return obj
-        }else {
-            return false 
+    var arr = []
+        for (let x of (store.movies)){
+            if(id == x.id) {
+                arr.push(x)
+            } 
         }
-    }
+        
 
     useEffect(() => {
         
-        let newFilm = (filtrarPorId(store.movies,{id}))
-        setPeliculas(newFilm)
+    
     },[])
-
-    console.log(peliculas,"pelis")
-
    
+    
 
     return (
         <div className="bg-dark text-warning">
@@ -43,8 +39,8 @@ export const DetailsCard =() => {
                 <div className="col-md-8">
 
                     <div className="card-body">
-                        <h2 className="card-title">{id}</h2>
-                        <p className="card-text"></p>
+                        <h2 className="card-title">id</h2>
+                        <h3 className="card-text"></h3>
                     </div>
                     
                 </div>
