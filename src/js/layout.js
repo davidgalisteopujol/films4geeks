@@ -5,39 +5,49 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Home } from "./views/home";
 import { Details } from "./views/details";
+import { ComingSoon } from "./views/detailsComingSoon";
+import { SearchInfo } from "./views/detailsSearchmovies";
 import { Search } from "./views/single";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Profile } from "./views/Profile";
 import {Starring} from "./views/starring";
+import blue from '@mui/material/colors/blue'
+import { Paper } from "@mui/material";
+
 
 //create your first component
 
 
+
+
 const Layout = () => {
-	const [darkMode, setDarkMode] = useState(false)
+	const [darkMode, setDarkMode] = useState(true)
 	const darkTheme = createTheme({
 		palette: {
 		  mode: darkMode ? 'dark' : 'light'
 		},
-	  });
+	});
+	 
 
-	  
-	//the basename is used when your project is published in a subdirectory and not in the root of the domain
-	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
+		  // Add your custom colors if any
+
 	const basename = process.env.BASENAME || "";
 
 	return (
 		<ThemeProvider theme={darkTheme}>
 			<CssBaseline />
+			<Paper>
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar check={darkMode} change={()=>setDarkMode(!darkMode)}/>
 						<Routes>
 							<Route path="/" element={<Home />} />
-							<Route path="/details/:id" element={<Details />} />
+							<Route path="/details/:index" element={<Details />} />
+							<Route path="/coming_soon/:index" element={<ComingSoon />} />
+							<Route path="/search_info/:index" element={<SearchInfo />} />
 							<Route path="/starring" element={<Starring />} />
 							<Route path="/search" element={<Search />} />
 							<Route path="/profile" element={<Profile />} />
@@ -47,6 +57,7 @@ const Layout = () => {
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>
+		</Paper>
 		</ThemeProvider>
 	);
 };

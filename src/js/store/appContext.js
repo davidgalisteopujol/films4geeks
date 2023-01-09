@@ -20,7 +20,7 @@ const injectContext = PassedComponent => {
 					})
 			})
 		);
-
+		
 		useEffect(() => {
 			/**
 			 * EDIT THIS!
@@ -33,6 +33,10 @@ const injectContext = PassedComponent => {
 			 **/
 			state.actions.fetchMovies();
 			state.actions.fetchComingSoon();
+			state.actions.fetchMovieOfTheDay();
+
+
+			// state.actions.getMovieRequest(searchValue)
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,

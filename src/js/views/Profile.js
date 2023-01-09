@@ -2,7 +2,7 @@ import React from 'react'
 import { Context } from '../store/appContext';
 import { Movielist } from '../component/movielist';
 import { Pendinglist } from '../component/pendinglist';
-
+import { Seenlist } from '../component/seenList';
 import '../../styles/profile.css'
 
 export const Profile = () => {
@@ -24,6 +24,10 @@ export const Profile = () => {
         <div className='p-4'>
             <h4>I want to see...</h4>
                 <Pendinglist />
+        </div>
+        <div className='p-4'>
+            <h4>Movies I've already seen...</h4>
+                <Seenlist />
         </div>
 
     </div>

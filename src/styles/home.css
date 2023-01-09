@@ -14,14 +14,95 @@
 .fav {
     background: none;
     border: none;
-    color: red;
+    color:  rgb(255, 206, 71);
+}
+
+.fav:hover {
+    background: none;
+    border: none;
+    color: orange;
+}
+
+.seen {
+    background: none;
+    border: none;
+    color:  rgb(255, 206, 71);
+}
+
+.seen:hover {
+    background: none;
+    border: none;
+    color: orange;
+
 }
 
 .pended {
     background: none;
     border: none;
-    color: yellow;
+    color:  rgb(255, 206, 71);
+
 }
+
+.pended:hover {
+    background: none;
+    border: none;
+    color: orange;
+
+
+}
+
+.added {
+    color: greenyellow;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.added:hover {
+    color: rgb(80, 123, 15);
+    background: none;
+    border: none;
+}
+
+.ind {
+    transition: all .4s ease-in-out; 
+}
+      
+ .ind:hover { 
+    transform: scale(0.9);   
+}
+
+.recommended {
+    display: flex;
+}
+
+.hovertext {
+    position: relative;
+   
+  }
+  
+  .hovertext:before {
+    content: attr(data-hover);
+    visibility: hidden;
+    opacity:0.33;
+    width: 100px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+  
+    border-radius: 5px;
+    padding: 5px 0;
+    transition: opacity 4s ease-in-out;
+
+    position: absolute;
+    z-index: 1;
+  
+  }
+  
+  .hovertext:hover:before {
+    opacity: 0.55;
+    visibility: visible;
+  }
 
 
 

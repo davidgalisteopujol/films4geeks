@@ -1,9 +1,16 @@
-import React, {useContext} from "react";
+import React, {useContext, useState, useEffect} from "react";
+import Recommended from "../component/Recommended.jsx";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import quotes from '/workspace/react-hello-webapp/quotes.json'
-import { Favorite, Tour } from "@mui/icons-material";
-import axios from "axios";
+import quotes from '/workspace/films4geeks/quotes.json'
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
+
+
+
+// import quotes from '/workspace/react-hello-webapp/quotes.json'
+import { Favorite, Visibility, Tour, CheckCircle} from "@mui/icons-material";
+
 
 
 import '../../styles/home.css'
@@ -11,71 +18,110 @@ import '../../styles/home.css'
 const API_IMAGE = 'https://image.tmdb.org/t/p/w500/'
 
 export const Home = () => {
+	
+	const sliceStart = Math.floor(Math.random()*15)
+	const sliceend = sliceStart + 1
+	const quoteStart = Math.floor(Math.random()*4)
+	const quoteEnd = quoteStart + 1
 	const {store, actions } = useContext(Context);
+	const responsive = {
+		2000: {
+		items: 7,
+		},
+		1200: {
+		items: 5,
+		},
+		800: {
+		items: 2,
+		},
+		0: {
+		items: 1,
+		},
+	};
 
 	return (
 	
 	<div className="container mt-5">
+	
 		<div>
 			{
-				quotes.map((quote, id) => {
+				quotes.slice(quoteStart, quoteEnd).map((quote, index) => {
 					return (
-					<div key={id} className='quote'>
+						
+					<div key={index} className='quote'>
 						<div className='column'> 
-							<p><i>"{quote.quote}"</i></p>
-							<p>{quote.movie}</p>
+				
+							<p className="p-0"><i>"{quote.quote}"</i></p>
+							<p className="p-0">{quote.movie}</p>
+							<p>{quote.year}</p>
 						</div>
 					</div>	
 					)
 				})
 			}
 		</div>
-
-
 		
-		<div className="row my-4 d-flex justify-content-center">
+
 		<h2 className="mb-4">Popular in 2022...</h2>
-		{
-			store.movies.slice(0,4).map((movie, index) => {
-				return (
-			<div className="mb-1" style={{ width: '18rem' }} key={index}>
-				<img className="card-img-top" src={API_IMAGE+movie.poster_path} />
-					<div>
-						<Link to={`details/${index}`}>
-							<button className="btn btn-secondary me-5 mt-2">Learn more</button>
-						</Link>
-						{store.favourites.includes(API_IMAGE+movie.poster_path) ? null : (
-						<button onClick={() => actions.setFavourites(API_IMAGE+movie.poster_path)} className='fav'><Favorite /></button>
-						)}
-						{store.pending.includes(API_IMAGE+movie.poster_path) ? null : (
-						<button onClick={() => actions.setPending(API_IMAGE+movie.poster_path)} className='pended'><Tour /></button>
-						)}
-					</div>
-			</div>
-		
-				)
-			})
-		}
-		</div>
-		<div className="row d-flex justify-content-center">
-			<h2 className="mb-4">Coming soon...</h2>
-			{
-				store.comingSoon.slice(5,9).map((movie, index) => {
-					return (
-					<div  style={{ width: '18rem' }} key={index} className='text-center'>
-						<img className="card-img-top" src={movie.image} />
-						
-					</div>
-					)
-				})
-			}
+		<div className="d-flex justify-content-around mx-2">
+			<AliceCarousel responsive={responsive} autoPlay autoPlayInterval="1500"> 
+			{store.movies.map((movie, index) => (   
+			<div key={index}>   
+				<div key={index} className='ind me-1'>
+					<Link to={`/details/${index}`}>
+						<img className="card-img-top" src={API_IMAGE+movie.poster_path} />
+					</Link>
+				</div>
+				<div className="d-flex justify-content-around p-1 position-relative">
+				
+					{store.seen.includes(API_IMAGE+movie.poster_path) ? <span title="Already seen"> <CheckCircle className="added" /></span> : (
+					<button onClick={() => actions.setSeen(API_IMAGE+movie.poster_path)} className='seen' title="Add to your seen list"><Visibility /></button>
+					)}	
+					{store.favourites.includes(API_IMAGE+movie.poster_path) ? <span title="Added to favourites"> <CheckCircle className="added" /></span> : (
+					<button onClick={() => actions.setFavourites(API_IMAGE+movie.poster_path)} className='fav' title="Add to your favourites list"><Favorite /></button>
+					)}
+				
+					{store.pending.includes(API_IMAGE+movie.poster_path) ? <span title="Added to movies I want to see"> <CheckCircle className="added" /></span> : (
+					<button onClick={() => actions.setPending(API_IMAGE+movie.poster_path)} className='pended' title="Add to your pending list"><Tour /></button>
+					)}
+					
+				</div>
+			</div>   
+			))}
+			</AliceCarousel>
 		</div>
 
+		<h2 className="mb-4">Coming Soon...</h2>
+		<div className="d-flex justify-content-around mx-2">
+			<AliceCarousel responsive={responsive} autoPlay autoPlayInterval="1500"> 
+			{store.comingSoon.map((movie, index) => (    
+				<div key={index}> 
+					<div key={index} className='ind me-1'>
+					<Link to={`/coming_soon/${index}`}>
+						<img className="card-img-top" src={API_IMAGE+movie.poster_path} />
+					</Link>
+					</div>
+					<div className="d-flex justify-content-around p-1">
+						{store.seen.includes(API_IMAGE+movie.poster_path) ? <span className="hovertext" data-hover="Added"> <CheckCircle className="added" /></span> : (
+						<button onClick={() => actions.preventDefault().setSeen(API_IMAGE+movie.poster_path)} className='seen' title="Add to your seen list"><Visibility /></button>
+						)}
+						{store.favourites.includes(API_IMAGE+movie.poster_path) ? <span className="hovertext" data-hover="Added"> <CheckCircle className="added" /></span> : (
+						<button onClick={() => actions.setFavourites(API_IMAGE+movie.poster_path)} className='fav' title="Add to your favourites list"><Favorite /></button>
+						)}
+						{store.pending.includes(API_IMAGE+movie.poster_path) ? <span className="hovertext" data-hover="Added"> <CheckCircle className="added" /></span> : (
+						<button onClick={() => actions.setPending(API_IMAGE+movie.poster_path)} className='pended' title="Add to your pending list"><Tour /></button>
+						)}
+				</div>
+			</div>    
+			))}
+			</AliceCarousel>
+		</div>
 
-	
+		<h2 className="mb-4">Recommended viewing...</h2>
+			<Recommended />	
 	</div>
 
 	)
-};
-
-
+}
+					
+			

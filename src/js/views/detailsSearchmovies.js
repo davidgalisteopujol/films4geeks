@@ -7,7 +7,7 @@ import "../../styles/details.css";
 import { Paper } from "@mui/material";
 const API_IMAGE = 'https://image.tmdb.org/t/p/w500/'
 
-export const Details = () => {
+export const SearchInfo = () => {
 	const { store, actions } = useContext(Context);
 
 	let params = useParams()
@@ -18,18 +18,18 @@ export const Details = () => {
 			<Paper>
 			<div>
 				<div className="card-title">
-					<h3>{store.movies[params.index].title}</h3>
+					<h3>{movies[params.index].title}</h3>
 				</div>
 				<div className="card-body d-flex justify-content-space-around">
-					<img className = 'card-img-top p-3'src={`https://image.tmdb.org/t/p/w500/${store.movies[params.index].poster_path}`} style={{height: '36em', width:'25em'}} />
+					<img className = 'card-img-top p-3'src={`https://image.tmdb.org/t/p/w500/${movies[params.index].poster_path}`} style={{height: '36em', width:'25em'}} />
 					<div >
 						<h5>Overview</h5>
-						<p>{store.movies[params.index].overview}</p>
+						<p>{movies[params.index].overview}</p>
 					</div>
 				</div>
 				
 			</div>
-			<Link to="/">
+			<Link to="/search">
 				<button className="btn btn-secondary">Back home</button>
 			</Link>
 			</Paper>

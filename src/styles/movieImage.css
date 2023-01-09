@@ -1,0 +1,13 @@
+.image_top {
+    min-height: 500px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+}
+
+
+h3 {
+    color: white;
+}
+

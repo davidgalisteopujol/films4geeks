@@ -3,5 +3,20 @@
         "id": 0,
         "quote": "Frankly, my dear, I don't give a damn",
         "movie": "Gone With the Wind"
+    },
+    {
+        "id": 1,
+        "quote": "ET go home",
+        "movie": "ET"
+    },
+    {
+        "id": 3,
+        "quote": "Life found a way",
+        "movie": "Jurassic Park"
+    },
+    {
+        "id": 4,
+        "quote": "We´re gonna need a bigger boat",
+        "movie": "Jaws"
     }
 ]
