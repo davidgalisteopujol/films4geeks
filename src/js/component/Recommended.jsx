@@ -20,7 +20,7 @@ const {store, actions } = useContext(Context);
   const [playing, setPlaying] = useState(false);
 
   // funcion para realizar la peticion get a la api
-  const fetchMovies = async (searchKey) => {
+  const fetchMovies = async () => {
    // const type = searchKey ? "search" : "discover";
     const {
       data: { results },
@@ -62,7 +62,7 @@ fetchMovies();
   return (
     
       <div className="container mt-3">
-        
+        <h2 className="mb-4">Recommended viewing...</h2>
             {movie ? (
             <div className="viewtrailer" style={{
                 backgroundImage: `url("${IMAGE_PATH}${movie.backdrop_path}")`,
@@ -73,6 +73,7 @@ fetchMovies();
                     <h4>{movie.overview}</h4>
                         <div>
                             {trailer ? (
+                              !playing ? (
                             <button
                                 className="close_one"
                                 onClick={() => setPlaying(true)}
@@ -80,6 +81,9 @@ fetchMovies();
                             >
                                 Play Trailer
                             </button>
+                              ) : (
+                                null 
+                              )
                             ) : (
                                 "Sorry, no trailer available"
                             )}
@@ -125,24 +129,3 @@ fetchMovies();
 
 export default Recommended;
 
-{/*<div>
-{
-
-//	store.movieOfTheDay.filter(movie => movie.imDbRating > 8.5)
-
-store.movieOfTheDay.slice(sliceStart, sliceend).map((movie, index) => {
-return (
-<div key={index} className="d-flex row"> 
-        <div className="col">
-            <img  src={API_IMAGE+movie.poster_path} className="mx-1" style={{height: "30em"}}/>
-        </div>
-        <div className="col">
-            <h4>{movie.title}</h4>
-            <h5>Overview</h5>
-            <p className="mx-1">{movie.overview}</p>
-        </div>
-    
-
-</div>
-)})}
-</div>*/}

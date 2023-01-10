@@ -4,7 +4,7 @@ import { DeleteOutline } from "@mui/icons-material";
 
 import '../../styles/movielist.css'
 
-export const Movielist = () => {
+const Movielist = () => {
 const {store, actions } = useContext(Context);
 
 
@@ -26,3 +26,4 @@ const {store, actions } = useContext(Context);
   )
 }
 
+export default Movielist

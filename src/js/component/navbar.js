@@ -22,7 +22,7 @@ export const Navbar = ({check,change}) => {
 				<Link to="/profile">
 					<div className="nav-link">My Profile</div>
 				</Link>
-				<Switch onChange={change} checked={check}/>
+			
 			</div>
 		</nav>
 	);

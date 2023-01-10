@@ -4,7 +4,7 @@ import { DeleteOutline } from "@mui/icons-material";
 
 import '../../styles/pending.css'
 
-export const Pendinglist = () => {
+const Pendinglist = () => {
 const {store, actions } = useContext(Context);
     return (
       <div className="text-center d-flex flex-wrap">
@@ -24,3 +24,4 @@ const {store, actions } = useContext(Context);
     )
   }
   
+export default Pendinglist

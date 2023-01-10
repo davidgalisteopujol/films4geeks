@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { Home } from "./views/home";
+import Home from "./views/home";
 import { Details } from "./views/details";
 import { ComingSoon } from "./views/detailsComingSoon";
 import { SearchInfo } from "./views/detailsSearchmovies";
@@ -11,9 +11,8 @@ import { Search } from "./views/single";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import { Profile } from "./views/Profile";
+import Profile  from "./views/Profile";
 import {Starring} from "./views/starring";
-import blue from '@mui/material/colors/blue'
 import { Paper } from "@mui/material";
 
 
@@ -36,13 +35,13 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<ThemeProvider theme={darkTheme}>
-			<CssBaseline />
-			<Paper>
+	//	<ThemeProvider theme={darkTheme}>
+	//		<CssBaseline />
+	//		<Paper>
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar check={darkMode} change={()=>setDarkMode(!darkMode)}/>
+					<Navbar />
 						<Routes>
 							<Route path="/" element={<Home />} />
 							<Route path="/details/:index" element={<Details />} />
@@ -57,8 +56,8 @@ const Layout = () => {
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>
-		</Paper>
-		</ThemeProvider>
+	//	</Paper>
+	//	</ThemeProvider>
 	);
 };
 

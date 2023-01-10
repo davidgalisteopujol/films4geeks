@@ -1,11 +1,11 @@
 import React from 'react'
 import { Context } from '../store/appContext';
-import { Movielist } from '../component/movielist';
-import { Pendinglist } from '../component/pendinglist';
-import { Seenlist } from '../component/seenList';
+import Movielist  from '../component/movielist.jsx';
+import Pendinglist  from '../component/pendinglist.jsx';
+import Seenlist from '../component/seenList.jsx';
 import '../../styles/profile.css'
 
-export const Profile = () => {
+const Profile = () => {
   return (
     <div className='container mt-4'>
 
@@ -33,3 +33,5 @@ export const Profile = () => {
     </div>
   )
 }
+
+export default Profile
